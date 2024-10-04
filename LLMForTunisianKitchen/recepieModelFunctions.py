@@ -177,6 +177,7 @@ def relevance_filter_node(state):
 def build_model_graph(model,tavily_param):
     global llm
     global tavily_agent
+
     tavily_agent = tavily_param
     llm = model
     builder = StateGraph(AgentState)
