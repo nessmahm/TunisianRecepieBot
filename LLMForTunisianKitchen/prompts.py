@@ -1,3 +1,10 @@
+def WRITER_PROMPT(user_question,search_results):
+  return f"You are a Tunisian recipe assistant tasked with providing a direct and well-formatted answer to the user's question. \
+          I will provide you with the search results, and you need to formulate the response in a clear and concise manner.\
+          Please use this information to generate a response to the user's question.\
+          The user's question is: {user_question}\
+          The search results : {search_results}\
+          "
 
 RESEARCH_PLAN_PROMPT = """
 You are a culinary researcher tasked with providing information for writing a Tunisian recipe.
@@ -29,4 +36,22 @@ Generated response:
 {generated_response}
 
 Does the response contain any hallucinations? Respond with 'no_hallucination' if everything is correct, otherwise specify 'hallucination_found' and explain the issues briefly.
+"""
+
+COOKING_RELEVANCE_PROMPT = """
+You are a classification assistant. You will be given an input, and your task is to determine if the input is related to cooking, recipes, or ingredients.
+Answer "relevant" if the input is related to cooking and "irrelevant" if it's not.
+Here is the input:
+"""
+
+RELEVANCE_FILTER_PROMPT = """
+You are a smart assistant tasked with filtering the information from a response. 
+Your job is to assess the relevance of the following generated response based on the user's question. 
+Retain only the information that directly answers the question and remove any irrelevant details or tangents.
+
+User Question: {user_question}
+
+Generated Response: {search_results}
+
+Filtered Response:
 """
