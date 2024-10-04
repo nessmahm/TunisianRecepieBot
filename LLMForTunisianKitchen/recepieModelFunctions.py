@@ -34,7 +34,7 @@ def research_plan_node(state: AgentState):
 
     print("****", queries)
     for q in queries.queries:
-        response = tavily.search(query=q, max_results=2)
+        response = tavily_agent.search(query=q, max_results=2)
         for r in response['results']:
             content.append(r['content'])
             if 'source' in r:
@@ -68,7 +68,7 @@ def document_analysis_node(state: AgentState):
 
 def agent_for_document_analysis_node(state: AgentState):
     content = state.get('content', [])
-    csv_file_path = "/content/drive/MyDrive/TunisianKitchenLLM/translated_tunisian_recepies.csv"
+    csv_file_path = "./translated_tunisian_recepies.csv"
     agent = create_csv_agent(llm, csv_file_path, verbose=False, allow_dangerous_code=True)
     agent_response = agent.invoke(DOCUMENT_ANALYSIS_PROMPT + state['task'])
     content.append(agent_response['output'])
@@ -79,7 +79,6 @@ def agent_for_document_analysis_node(state: AgentState):
 
 def generation_node(state: AgentState):
     content = "\n\n".join(state.get('content', []))
-    sources = "\n".join(state.get('sources', []))
     user_message = HumanMessage(
         content=f"{state['task']}")
     messages = [
@@ -149,10 +148,9 @@ def decide_next_step(state):
 
 
 def decide_next_step_after_grading(state):
-    if state.get('hallucination_check') == 'no_hallucination':
+    if state.get("revision_number") > state["max_revisions"] or state.get('hallucination_check') == 'no_hallucination':
         return "relevance_filter"
-    if state.get('hallucination_check') == 'no_hallucination':
-        return "generate"
+    return "generate"
 
 
 def relevance_filter_node(state):
@@ -176,8 +174,10 @@ def relevance_filter_node(state):
     }
 
 
-def build_model_graph(model):
+def build_model_graph(model,tavily_param):
     global llm
+    global tavily_agent
+    tavily_agent = tavily_param
     llm = model
     builder = StateGraph(AgentState)
     builder.add_node("generate", generation_node)
@@ -210,8 +210,7 @@ def build_model_graph(model):
         decide_next_step_after_grading,
         {
             "generate": "generate",
-            "research_plan": "research_plan",
-            "relevance_filter": "relevance_filter"
+            "relevance_filter": "relevance_filter",
         }
     )
 

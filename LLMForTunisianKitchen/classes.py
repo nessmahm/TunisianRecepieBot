@@ -8,6 +8,7 @@ class AgentState(TypedDict):
     revision_number: int
     max_revisions: int
     hallucination_check : str
+    filtered_draft: str
 
 class Queries(BaseModel):
     queries: List[str]
