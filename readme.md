@@ -65,16 +65,16 @@ The front-end of the Tunisian Kitchen Assistant Bot is built using **ReactJS** t
 - **Structured Responses**: The interface displays results in a structured format, with clear sections for ingredients, preparation steps, and any additional context.
 
 ### API Integration
-The front-end is connected to the **LLaMA3** model via a **Flask** API. Flask serves as the middleware that links the ReactJS front-end with the model and Tavily API for information retrieval. The process flow is as follows:
+The front-end is connected to the **LLaMA3** model via a **FastAPI** FastAPI serves as the middleware that links the ReactJS front-end with the model and Tavily API for information retrieval. The process flow is as follows:
 
-1. **User Query**: When a user submits a query through the ReactJS front-end, the request is sent to the Flask API.
-2. **Model Invocation**: The Flask API passes the query to the back-end where the **LLaMA3** model processes it, either using pre-loaded documents or triggering a web search via the Tavily API.
-3. **Response Handling**: Once the model generates a response, the Flask API sends it back to the front-end.
+1. **User Query**: When a user submits a query through the ReactJS front-end, the request is sent to the FastAPI backend.
+2. **Model Invocation**: The FastAPI backend processes the query by invoking the **LLaMA3** model. The model either retrieves information from pre-loaded documents or triggers a web search using the Tavily API if additional information is required.
+3. **Response Handling**: Once the model generates a response, the FastAPI sends it back to the front-end.
 4. **Display**: The response is displayed on the user interface in an easily digestible format.
 
 ### Technologies Used:
 - **ReactJS** for building the user interface.
-- **Flask** for handling API requests and integrating the front-end with the back-end.
+- **FastAPI** for handling API requests and integrating the front-end with the back-end.
 
 This integration ensures smooth communication between the front-end and back-end, providing users with quick, accurate, and informative cooking-related responses.
 
