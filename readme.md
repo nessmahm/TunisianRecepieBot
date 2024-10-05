@@ -82,8 +82,8 @@ This integration ensures smooth communication between the front-end and back-end
 
 This screenshot showcases the interactive capabilities of the Tunisian Kitchen Assistant Bot, highlighting how it engages users with relevant cooking queries and responses.
 <div style="display: flex; justify-content: space-around;">
-    <img src="./img.png" alt="Bot Screenshot 1" width="400" />
-    <img src="./img_1.png" alt="Bot Screenshot 2" width="400" />
+    <img src="./img.png" alt="Bot Screenshot 1" width="400" height="700"/>
+    <img src="./img_1.png" alt="Bot Screenshot 2" width="400" height="700" />
 </div>
 
 The bot effectively combines pre-loaded recipes with real-time web search results, ensuring that users receive accurate and helpful information. This demonstrates the application’s seamless integration of advanced AI and user-friendly design.
