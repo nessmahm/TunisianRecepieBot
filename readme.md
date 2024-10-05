@@ -77,3 +77,13 @@ The front-end is connected to the **LLaMA3** model via a **Flask** API. Flask se
 - **Flask** for handling API requests and integrating the front-end with the back-end.
 
 This integration ensures smooth communication between the front-end and back-end, providing users with quick, accurate, and informative cooking-related responses.
+
+## Bot Interaction Screenshot
+
+This screenshot showcases the interactive capabilities of the Tunisian Kitchen Assistant Bot, highlighting how it engages users with relevant cooking queries and responses.
+<div style="display: flex; justify-content: space-around;">
+    <img src="./img.png" alt="Bot Screenshot 1" width="400" />
+    <img src="./img_1.png" alt="Bot Screenshot 2" width="400" />
+</div>
+
+The bot effectively combines pre-loaded recipes with real-time web search results, ensuring that users receive accurate and helpful information. This demonstrates the application’s seamless integration of advanced AI and user-friendly design.
