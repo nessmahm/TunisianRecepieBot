@@ -81,7 +81,7 @@ This integration ensures smooth communication between the front-end and back-end
 ## Bot Interaction Screenshot
 
 This screenshot showcases the interactive capabilities of the Tunisian Kitchen Assistant Bot, highlighting how it engages users with relevant cooking queries and responses.
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: center; gap:10px; ">
     <img src="./img.png" alt="Bot Screenshot 1" width="350" height="700"/>
     <img src="./img_2.png" alt="Bot Screenshot 1" width="350" height="700"/>
 </div>
