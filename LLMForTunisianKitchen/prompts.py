@@ -39,8 +39,8 @@ Does the response contain any hallucinations? Respond with 'no_hallucination' if
 """
 
 COOKING_RELEVANCE_PROMPT = """
-You are a classification assistant. You will be given an input, and your task is to determine if the input is related to cooking, recipes, or ingredients.
-Answer "relevant" if the input is related to cooking and "irrelevant" if it's not.
+You are a classification assistant. You will be given an input, and your task is to determine if the input is related to foods, cooking, recipes, or ingredients.
+Answer "relevant" if the input is related to foods, cooking , recipes, or ingredients and "irrelevant" if it's not.
 Here is the input:
 """
 

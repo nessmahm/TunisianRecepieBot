@@ -36,6 +36,6 @@ def ask_the_bot(task):
 
   if start_index != -1:
       filtered_message = draft_text[start_index + len(start_marker):].strip()
-      return filtered_message.replace("**", "<br/>")
+      return filtered_message.replace("**", "")
   else:
       return "Could you please clarify your question or provide more context about what you're looking for?"

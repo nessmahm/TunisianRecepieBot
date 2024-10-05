@@ -121,7 +121,7 @@ def classify_relevance(state):
     ]
     response = llm.invoke(messages)
     response_content = response.content if hasattr(response, 'content') else ""
-    if response_content == 'relevant':
+    if response_content.lower() == 'relevant':
         return "document_analysis"
     else:
         return "generate"
